@@ -131,6 +131,7 @@ a:focus {
   grid-column: 2;
   grid-row: 1 / span 2;
   align-self: center;
+  justify-self: end;
   display: flex;
   align-items: center;
   gap: 10px;
@@ -139,6 +140,7 @@ a:focus {
 .header-tools .header-avatar {
   grid-column: auto;
   grid-row: auto;
+  order: 2;
 }
 
 .character-divider {
@@ -257,9 +259,14 @@ a:focus {
 }
 
 .header-attention {
-  justify-content: flex-start;
+  order: 1;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 6px;
   max-width: 260px;
   margin: 0;
+  text-align: right;
 }
 
 .eye-button {

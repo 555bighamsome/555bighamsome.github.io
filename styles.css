@@ -558,7 +558,7 @@ h3 {
 
 .pub-list {
   display: grid;
-  gap: var(--item-space);
+  gap: 36px;
   margin: 0;
   padding: 0;
   list-style: none;
@@ -572,35 +572,80 @@ h3 {
   margin-top: 0;
 }
 
+.pub-entry {
+  display: grid;
+  grid-template-columns: 3rem minmax(0, 1fr);
+  gap: 20px;
+  align-items: start;
+}
+
+.pub-year {
+  padding-top: 4px;
+  color: var(--muted);
+  font-family: var(--sans);
+  font-size: 14px;
+  line-height: 1.5;
+  font-variant-numeric: tabular-nums;
+}
+
+.pub-details {
+  min-width: 0;
+}
+
 .pub-title,
 .pub-authors,
 .pub-venue,
+.pub-links,
 .pub-note {
   display: block;
+  margin: 0;
 }
 
 .pub-title {
-  margin-bottom: 6px;
+  margin-bottom: 8px;
   color: var(--text);
-  font-size: 19px;
+  font-size: 20px;
   font-weight: 600;
-  line-height: 1.35;
+  line-height: 1.4;
 }
 
 .pub-authors,
 .pub-venue,
+.pub-links,
 .pub-note {
   color: var(--muted);
   font-family: var(--sans);
   font-size: 15px;
-  line-height: 1.5;
+  line-height: 1.65;
+}
+
+.pub-authors {
+  color: #514d43;
+  font-size: 16px;
+}
+
+.pub-authors strong {
+  color: var(--text);
+}
+
+.pub-venue {
+  margin-top: 6px;
+  overflow-wrap: anywhere;
+}
+
+.pub-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 16px;
+  margin-top: 8px;
+  font-size: 14px;
+  font-weight: 600;
 }
 
 .pub-note {
-  color: var(--muted);
-  font-family: var(--sans);
+  margin-top: 8px;
   font-size: 14px;
-  margin-top: 3px;
+  font-style: italic;
 }
 
 .project-list {
@@ -782,6 +827,23 @@ h3 {
   .interest-list {
     grid-template-columns: 1fr;
     gap: 6px;
+  }
+
+  .pub-list {
+    gap: 30px;
+  }
+
+  .pub-entry {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 6px;
+  }
+
+  .pub-year {
+    padding-top: 0;
+  }
+
+  .pub-title {
+    font-size: 19px;
   }
 
   .project-with-figure {

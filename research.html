@@ -7,13 +7,14 @@
     <meta name="description" content="Research by Pinzhe (Zach) Zhao in computational cognitive science, cognitive psychology, machine learning, and human-inspired AI." />
     <meta name="author" content="Pinzhe Zhao" />
     <link rel="canonical" href="https://555bighamsome.github.io/research.html" />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="styles.css?v=20260911-editorial" />
   </head>
   <body>
     <main class="page">
       <header class="site-header">
         <div>
-          <a class="site-title" href="index.html">Pinzhe (Zach) Zhao</a>
+          <h1 class="site-heading"><a class="site-title" href="index.html">Pinzhe (Zach) Zhao</a></h1>
           <p class="site-subtitle">Cognitive Science · computational modeling · machine learning</p>
         </div>
         <nav class="nav" aria-label="Primary navigation">
@@ -21,6 +22,7 @@
           <a class="active" href="research.html">Research</a>
           <a href="resources.html">Resources</a>
           <a href="personal.html">Personal</a>
+          <a href="Zach_Zhao.pdf" target="_blank" rel="noreferrer">CV</a>
         </nav>
         <a class="header-avatar" href="https://www.chiikawaofficial.com/characters" target="_blank" rel="noreferrer" aria-label="Usagi official character artwork">
           <img src="https://images.squarespace-cdn.com/content/v1/6670add926f2a64cd00fb0e7/380ff076-4839-4b29-bb0b-53887285d56d/character+2.png?format=300w" alt="Usagi official character artwork" />
@@ -42,7 +44,6 @@
       </div>
 
       <section class="content">
-        <h1>Research</h1>
         <p class="section-intro">
           I am broadly interested in human cognition. Humans have remarkably
           limited cognitive resources, yet we can show creativity, reasoning,
@@ -52,7 +53,7 @@
         </p>
 
         <h2>Research Interests</h2>
-        <ul class="plain-list">
+        <ul class="plain-list interest-list" role="list">
           <li>Computational cognitive science</li>
           <li>Cognitive psychology</li>
           <li>Machine learning</li>
@@ -60,7 +61,7 @@
         </ul>
 
         <h2>Selected Publications</h2>
-        <ol class="pub-list">
+        <ol class="pub-list" role="list">
           <li>
             <span class="pub-title">Online library learning in human visual puzzle solving</span>
             <span class="pub-authors">
@@ -106,7 +107,7 @@
         </ol>
 
         <h2>Selected Projects</h2>
-        <div class="project-list">
+        <div class="project-list research-projects">
           <article>
             <h3>Summer Research Internship</h3>
             <p class="project-meta">
@@ -114,40 +115,58 @@
               <a href="https://zhaobn.github.io/" target="_blank" rel="noreferrer">Bonan Zhao</a>
             </p>
             <p>
-              Summer Research Intern at the University of Edinburgh School of
-              Informatics. The specific research topic is still being developed.
+              I am designing a social-norm task where people create rules to
+              coordinate robots on a grid. The project studies representational
+              shifts: when people keep refining existing rules and when they
+              reorganize them around a different feature.
             </p>
           </article>
-          <article>
-            <h3>Online Library Learning in Human Visual Puzzle Solving</h3>
-            <p class="project-meta">
-              Sep 2025 – Present · Edinburgh, UK · Supervision:
-              <a href="https://zhaobn.github.io/" target="_blank" rel="noreferrer">Bonan Zhao</a>
-              and <a href="https://marta-kryven.github.io/" target="_blank" rel="noreferrer">Marta Kryven</a>
-            </p>
-            <p>
-              Research Assistant at the University of Edinburgh School of
-              Informatics. This project asks how people learn reusable helper
-              abstractions while solving visual puzzles, and how those learned
-              abstractions shape later problem solving. It connects human
-              behavioral data with computational accounts of online library
-              learning.
-            </p>
+          <article class="project-with-figure">
+            <div class="project-copy">
+              <h3>Online Library Learning in Human Visual Puzzle Solving</h3>
+              <p class="project-meta">
+                Sep 2025 – Present · Edinburgh, UK · Supervision:
+                <a href="https://zhaobn.github.io/" target="_blank" rel="noreferrer">Bonan Zhao</a>
+                and <a href="https://marta-kryven.github.io/" target="_blank" rel="noreferrer">Marta Kryven</a>
+              </p>
+              <p>
+                I study how people build and reuse a library of helper patterns
+                while solving visual puzzles. We compare human behaviour with
+                computational models of library learning.
+              </p>
+            </div>
+            <figure class="project-figure">
+              <a href="assets/research/online-library-learning-figure-1.png" target="_blank" rel="noreferrer" aria-label="View the full Pattern Builder task figure">
+                <img src="assets/research/online-library-learning-figure-1.png" alt="Pattern Builder interface showing a target pattern, construction operations, a sequence of steps, and saved reusable helpers." width="1404" height="756" loading="lazy" decoding="async" />
+              </a>
+              <figcaption>
+                <a href="https://arxiv.org/abs/2603.23244" target="_blank" rel="noreferrer">Zhao et al. (2026), Fig. 1</a>.
+              </figcaption>
+            </figure>
           </article>
-          <article>
-            <h3>Prospective Compression in Human Abstraction Learning</h3>
-            <p class="project-meta">
-              Sep 2025 – Present · Edinburgh, UK · Supervision:
-              <a href="https://zhaobn.github.io/" target="_blank" rel="noreferrer">Bonan Zhao</a>
-              and <a href="https://marta-kryven.github.io/" target="_blank" rel="noreferrer">Marta Kryven</a>
-            </p>
-            <p>
-              This project studies whether people form abstractions not only for
-              the current task, but also in anticipation of future problems. It
-              examines prospective compression in human abstraction learning:
-              how people simplify, reorganize, and reuse learned structure when
-              task demands change.
-            </p>
+          <article class="project-with-figure">
+            <div class="project-copy">
+              <h3>Prospective Compression in Human Abstraction Learning</h3>
+              <p class="project-meta">
+                Sep 2025 – Present · Edinburgh, UK · Supervision:
+                <a href="https://zhaobn.github.io/" target="_blank" rel="noreferrer">Bonan Zhao</a>
+                and <a href="https://marta-kryven.github.io/" target="_blank" rel="noreferrer">Marta Kryven</a>
+              </p>
+              <p>
+                This project asks whether people form abstractions with future
+                problems in mind. We use visual puzzle tasks and computational
+                models to distinguish prospective learning from compression of
+                past experience.
+              </p>
+            </div>
+            <figure class="project-figure">
+              <a href="assets/research/prospective-compression-figure-1.png" target="_blank" rel="noreferrer" aria-label="View the full prospective compression figure">
+                <img src="assets/research/prospective-compression-figure-1.png" alt="Diagram contrasting retrospective compression of observed tasks with prospective compression that also anticipates future tasks." width="1328" height="636" loading="lazy" decoding="async" />
+              </a>
+              <figcaption>
+                <a href="https://arxiv.org/abs/2605.09985" target="_blank" rel="noreferrer">Hernandez Cano et al. (2026), Fig. 1</a>.
+              </figcaption>
+            </figure>
           </article>
           <article>
             <h3>Brain-Heart Interactions During Sleep</h3>

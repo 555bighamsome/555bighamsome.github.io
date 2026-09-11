@@ -3,15 +3,23 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Pinzhe (Zach) Zhao</title>
+    <title>Pinzhe (Zach) Zhao | Cognitive Science</title>
     <meta
       name="description"
       content="Pinzhe (Zach) Zhao's academic homepage. Cognitive Science student at the University of Edinburgh, interested in computational cognitive science, machine learning, and human-inspired AI."
     />
     <meta name="author" content="Pinzhe Zhao" />
     <meta name="keywords" content="Pinzhe Zhao, Zach Zhao, Zhe Zhao, cognitive science, computational cognitive science, machine learning, human-inspired AI, University of Edinburgh" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Pinzhe (Zach) Zhao | Cognitive Science" />
+    <meta property="og:description" content="Cognitive Science student at the University of Edinburgh interested in computational cognitive science, machine learning, and human-inspired AI." />
+    <meta property="og:url" content="https://555bighamsome.github.io/" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Pinzhe (Zach) Zhao | Cognitive Science" />
+    <meta name="twitter:description" content="Cognitive Science student at the University of Edinburgh interested in computational cognitive science, machine learning, and human-inspired AI." />
     <link rel="canonical" href="https://555bighamsome.github.io/" />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="styles.css?v=20260911-editorial" />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -20,6 +28,11 @@
         "alternateName": ["Zach Zhao", "Zhe Zhao"],
         "url": "https://555bighamsome.github.io/",
         "email": "mailto:s2471381@ed.ac.uk",
+        "sameAs": [
+          "https://scholar.google.com/citations?hl=en&user=_O-yHcwAAAAJ",
+          "https://github.com/555bighamsome",
+          "https://www.linkedin.com/in/zach-zhao-b4a0802a0"
+        ],
         "affiliation": {
           "@type": "CollegeOrUniversity",
           "name": "University of Edinburgh"
@@ -38,7 +51,7 @@
     <main class="page">
       <header class="site-header">
         <div>
-          <a class="site-title" href="index.html">Pinzhe (Zach) Zhao</a>
+          <h1 class="site-heading"><a class="site-title" href="index.html">Pinzhe (Zach) Zhao</a></h1>
           <p class="site-subtitle">Cognitive Science · computational modeling · machine learning</p>
         </div>
         <nav class="nav" aria-label="Primary navigation">
@@ -46,24 +59,11 @@
           <a href="research.html">Research</a>
           <a href="resources.html">Resources</a>
           <a href="personal.html">Personal</a>
+          <a href="Zach_Zhao.pdf" target="_blank" rel="noreferrer">CV</a>
         </nav>
-        <div class="header-tools">
-          <div class="attention-widget header-attention" aria-live="polite">
-            <button class="eye-button" type="button" id="attention-button">
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M2.2 12s3.5-6 9.8-6 9.8 6 9.8 6-3.5 6-9.8 6-9.8-6-9.8-6Z" />
-                <circle cx="12" cy="12" r="3" />
-              </svg>
-              <span>Click to let me know you are watching</span>
-            </button>
-            <span class="attention-count">
-              <span id="attention-count">0</span> watching
-            </span>
-          </div>
-          <a class="header-avatar" href="https://www.chiikawaofficial.com/characters" target="_blank" rel="noreferrer" aria-label="Usagi official character artwork">
-            <img src="https://images.squarespace-cdn.com/content/v1/6670add926f2a64cd00fb0e7/380ff076-4839-4b29-bb0b-53887285d56d/character+2.png?format=300w" alt="Usagi official character artwork" />
-          </a>
-        </div>
+        <a class="header-avatar" href="https://www.chiikawaofficial.com/characters" target="_blank" rel="noreferrer" aria-label="Usagi official character artwork">
+          <img src="https://images.squarespace-cdn.com/content/v1/6670add926f2a64cd00fb0e7/380ff076-4839-4b29-bb0b-53887285d56d/character+2.png?format=300w" alt="Usagi official character artwork" />
+        </a>
       </header>
 
       <section class="intro intro-home">
@@ -81,13 +81,6 @@
             of human thought. To evaluate these models, we conduct online
             behavioral experiments and collect empirical data.
           </p>
-
-          <aside class="notice" aria-label="PhD opportunities">
-            <strong>PhD opportunities:</strong> I am beginning to look for PhD
-            opportunities starting in 2027 in computational cognitive science
-            and human-inspired AI. If you know of a possible fit, please feel
-            free to contact me.
-          </aside>
 
           <dl class="contact-list">
             <div>
@@ -131,7 +124,6 @@
 
           <section class="news-section" aria-labelledby="news-title">
             <div class="news-label">
-              <span class="news-pulse" aria-hidden="true"></span>
               <h2 id="news-title">News</h2>
             </div>
             <ul class="news-list">
@@ -171,50 +163,5 @@
         </article>
       </section>
     </main>
-    <script>
-      (() => {
-        const key = "pinzhe_zach_zhao_attention_v1";
-        const clickedKey = "pinzhe_zach_zhao_attention_clicked";
-        const apiBase = "https://countapi.mileshilliard.com/api/v1";
-        const button = document.getElementById("attention-button");
-        const count = document.getElementById("attention-count");
-
-        const setCount = (value) => {
-          const number = Number(value);
-          count.textContent = Number.isFinite(number) ? String(number) : "0";
-        };
-
-        const markClicked = () => {
-          button.disabled = true;
-          button.querySelector("span").textContent = "Thanks for watching";
-        };
-
-        if (localStorage.getItem(clickedKey) === "yes") {
-          markClicked();
-        }
-
-        fetch(`${apiBase}/get/${key}`)
-          .then((response) => (response.ok ? response.json() : { value: 0 }))
-          .then((data) => setCount(data.value))
-          .catch(() => setCount(0));
-
-        button.addEventListener("click", () => {
-          if (localStorage.getItem(clickedKey) === "yes") return;
-
-          button.disabled = true;
-          fetch(`${apiBase}/hit/${key}`)
-            .then((response) => response.json())
-            .then((data) => {
-              localStorage.setItem(clickedKey, "yes");
-              setCount(data.value);
-              markClicked();
-            })
-            .catch(() => {
-              button.disabled = false;
-              button.querySelector("span").textContent = "Please try again later";
-            });
-        });
-      })();
-    </script>
   </body>
 </html>

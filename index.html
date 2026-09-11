@@ -19,7 +19,7 @@
     <meta name="twitter:description" content="Cognitive Science student at the University of Edinburgh interested in computational cognitive science, machine learning, and human-inspired AI." />
     <link rel="canonical" href="https://555bighamsome.github.io/" />
     <link rel="icon" href="favicon.svg" type="image/svg+xml" />
-    <link rel="stylesheet" href="styles.css?v=20260911-editorial" />
+    <link rel="stylesheet" href="styles.css?v=20260911-watching" />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -61,9 +61,23 @@
           <a href="personal.html">Personal</a>
           <a href="Zach_Zhao.pdf" target="_blank" rel="noreferrer">CV</a>
         </nav>
-        <a class="header-avatar" href="https://www.chiikawaofficial.com/characters" target="_blank" rel="noreferrer" aria-label="Usagi official character artwork">
-          <img src="https://images.squarespace-cdn.com/content/v1/6670add926f2a64cd00fb0e7/380ff076-4839-4b29-bb0b-53887285d56d/character+2.png?format=300w" alt="Usagi official character artwork" />
-        </a>
+        <div class="header-tools">
+          <div class="attention-widget header-attention" aria-live="polite">
+            <button class="eye-button" type="button" id="attention-button" disabled>
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path d="M2.2 12s3.5-6 9.8-6 9.8 6 9.8 6-3.5 6-9.8 6-9.8-6-9.8-6Z" />
+                <circle cx="12" cy="12" r="3" />
+              </svg>
+              <span>Click to let me know you are watching</span>
+            </button>
+            <span class="attention-count">
+              <span id="attention-count">15</span> watching
+            </span>
+          </div>
+          <a class="header-avatar" href="https://www.chiikawaofficial.com/characters" target="_blank" rel="noreferrer" aria-label="Usagi official character artwork">
+            <img src="https://images.squarespace-cdn.com/content/v1/6670add926f2a64cd00fb0e7/380ff076-4839-4b29-bb0b-53887285d56d/character+2.png?format=300w" alt="Usagi official character artwork" />
+          </a>
+        </div>
       </header>
 
       <section class="intro intro-home">
@@ -163,5 +177,74 @@
         </article>
       </section>
     </main>
+    <script>
+      (() => {
+        const key = "pinzhe_zach_zhao_attention_v1";
+        const clickedKey = "pinzhe_zach_zhao_attention_clicked";
+        const apiBase = "https://countapi.mileshilliard.com/api/v1";
+        const button = document.getElementById("attention-button");
+        const count = document.getElementById("attention-count");
+        let hasClicked = false;
+        let busy = true;
+
+        try {
+          hasClicked = localStorage.getItem(clickedKey) === "yes";
+        } catch {
+          // The shared count still works when browser storage is unavailable.
+        }
+
+        const markClicked = () => {
+          button.disabled = true;
+          button.querySelector("span").textContent = "Thanks for watching";
+        };
+
+        const requestCount = async (action) => {
+          const response = await fetch(`${apiBase}/${action}/${key}`, {
+            cache: "no-store",
+            signal: AbortSignal.timeout(10000),
+          });
+          if (!response.ok) throw new Error("Counter unavailable");
+          const data = await response.json();
+          const value = Number(data.value);
+          if (data.value == null || !Number.isSafeInteger(value) || value < 0) {
+            throw new Error("Invalid count");
+          }
+          return value;
+        };
+
+        if (hasClicked) markClicked();
+
+        requestCount("get")
+          .then((value) => { count.textContent = String(value); })
+          .catch(() => { count.title = "Last available count"; })
+          .finally(() => {
+            busy = false;
+            button.disabled = hasClicked;
+          });
+
+        button.addEventListener("click", async () => {
+          if (hasClicked || busy) return;
+          busy = true;
+          button.disabled = true;
+          try {
+            const value = await requestCount("hit");
+            count.textContent = String(value);
+            count.removeAttribute("title");
+            hasClicked = true;
+            try {
+              localStorage.setItem(clickedKey, "yes");
+            } catch {
+              // Keep the successful click in memory for this page session.
+            }
+            markClicked();
+          } catch {
+            button.disabled = false;
+            button.querySelector("span").textContent = "Please try again later";
+          } finally {
+            busy = false;
+          }
+        });
+      })();
+    </script>
   </body>
 </html>

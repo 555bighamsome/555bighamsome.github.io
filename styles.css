@@ -44,6 +44,52 @@
   box-sizing: border-box;
 }
 
+html {
+  scrollbar-gutter: stable both-edges;
+}
+
+/* Native page navigation: keep the old page visible while the new one fades in.
+   No click interception, delayed navigation, or initially hidden page content.
+   https://developer.chrome.com/docs/web-platform/view-transitions/cross-document */
+@view-transition {
+  navigation: auto;
+}
+
+::view-transition-group(root) {
+  animation: none;
+}
+
+::view-transition-old(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+::view-transition-new(root) {
+  animation: page-reveal 160ms ease-out both;
+  mix-blend-mode: normal;
+}
+
+@keyframes page-reveal {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  @view-transition {
+    navigation: none;
+  }
+
+  ::view-transition-group(root),
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation: none;
+  }
+}
+
 body {
   margin: 0;
   color: var(--text);
@@ -131,11 +177,24 @@ a:focus {
 
 .nav a {
   color: var(--text);
+  font-weight: 500;
+  white-space: nowrap;
+  transition: color 140ms ease;
 }
 
 .nav a.active {
   color: var(--link-hover);
-  font-weight: 600;
+}
+
+.nav a:hover,
+.nav a:focus {
+  text-decoration: none;
+}
+
+.nav a:focus-visible {
+  border-radius: 3px;
+  outline: 2px solid var(--link);
+  outline-offset: 4px;
 }
 
 .header-avatar {
@@ -326,45 +385,66 @@ a:focus {
 .social-links {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  align-items: center;
+  gap: 12px;
   margin-top: 18px;
+  scroll-margin-top: 24px;
 }
 
 .social-link {
   display: inline-grid;
   place-items: center;
-  width: 38px;
-  height: 38px;
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  background: #fffdf4;
-  color: var(--text);
-  box-shadow: 0 4px 12px rgba(154, 115, 42, 0.08);
-  transition: transform 140ms ease, border-color 140ms ease, color 140ms ease,
-    background-color 140ms ease;
+  flex: 0 0 auto;
+  width: 44px;
+  height: 44px;
+  border: 1px solid #e6dfcf;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.6);
+  color: #615b50;
+  line-height: 1;
+  box-shadow: 0 1px 2px rgba(83, 69, 41, 0.04);
+  transition: transform 160ms ease, border-color 160ms ease, color 160ms ease,
+    background-color 160ms ease, box-shadow 160ms ease;
 }
 
 .social-link:hover,
 .social-link:focus {
-  border-color: var(--sun);
-  background: var(--soft);
-  color: var(--link-hover);
   text-decoration: none;
-  transform: translateY(-2px);
 }
 
 .social-link:focus-visible {
+  border-color: #cab68e;
+  background: #ffffff;
+  color: var(--link-hover);
   outline: 2px solid var(--link);
-  outline-offset: 3px;
+  outline-offset: 4px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .social-link:hover {
+    border-color: #cab68e;
+    background: #ffffff;
+    color: var(--link-hover);
+    box-shadow: 0 3px 8px rgba(83, 69, 41, 0.07);
+    transform: translateY(-1px);
+  }
 }
 
 .social-link svg {
-  width: 18px;
-  height: 18px;
+  display: block;
+  width: 20px;
+  height: 20px;
 }
 
 .social-link .icon-fill {
+  width: 17px;
+  height: 17px;
   fill: currentColor;
+}
+
+.social-link .icon-linkedin {
+  width: 18px;
+  height: 18px;
 }
 
 .social-link .icon-stroke {
@@ -372,7 +452,18 @@ a:focus {
   stroke: currentColor;
   stroke-linecap: round;
   stroke-linejoin: round;
-  stroke-width: 1.7;
+  stroke-width: 1.5;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nav a,
+  .social-link {
+    transition: none;
+  }
+
+  .social-link:hover {
+    transform: none;
+  }
 }
 
 .news-section {

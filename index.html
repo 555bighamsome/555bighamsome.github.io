@@ -19,7 +19,9 @@
     <meta name="twitter:description" content="Cognitive Science student at the University of Edinburgh interested in computational cognitive science, machine learning, and human-inspired AI." />
     <link rel="canonical" href="https://555bighamsome.github.io/" />
     <link rel="icon" href="favicon.svg" type="image/svg+xml" />
-    <link rel="stylesheet" href="styles.css?v=20260911-watching" />
+    <link rel="preload" href="assets/fonts/source-serif-4-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="assets/fonts/source-sans-3-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="stylesheet" href="styles.css?v=20260912-transitions" />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -55,7 +57,7 @@
           <p class="site-subtitle">Cognitive Science · computational modeling · machine learning</p>
         </div>
         <nav class="nav" aria-label="Primary navigation">
-          <a class="active" href="index.html">Home</a>
+          <a class="active" href="index.html" aria-current="page">Home</a>
           <a href="research.html">Research</a>
           <a href="resources.html">Resources</a>
           <a href="personal.html">Personal</a>
@@ -87,6 +89,8 @@
           <p>
             I am a <strong>final-year Cognitive Science student</strong> at the
             <a href="https://www.ed.ac.uk/" target="_blank" rel="noreferrer">University of Edinburgh</a>.
+            I am also a member of the
+            <a href="https://zhaobn.github.io/index.html" target="_blank" rel="noreferrer">BoCoCo Lab</a>.
           </p>
 
           <p>
@@ -111,7 +115,7 @@
             </div>
           </dl>
 
-          <div class="social-links" aria-label="Profile links">
+          <div class="social-links" id="profile-links" aria-label="Profile links">
             <a class="social-link" href="https://scholar.google.com/citations?hl=en&amp;user=_O-yHcwAAAAJ" target="_blank" rel="me noreferrer" aria-label="Google Scholar" title="Google Scholar">
               <svg class="icon-stroke" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                 <path d="m3 10 9-5 9 5-9 5-9-5Z" />
@@ -124,8 +128,8 @@
               </svg>
             </a>
             <a class="social-link" href="https://www.linkedin.com/in/zach-zhao-b4a0802a0" target="_blank" rel="me noreferrer" aria-label="LinkedIn profile" title="LinkedIn">
-              <svg class="icon-fill" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
-                <path d="M0 1.15C0 .51.53 0 1.18 0h13.64C15.47 0 16 .51 16 1.15v13.7c0 .64-.53 1.15-1.18 1.15H1.18C.53 16 0 15.49 0 14.85V1.15Zm4.94 12.24V6.17h-2.4v7.22h2.4ZM3.74 5.18c.84 0 1.36-.55 1.36-1.25-.02-.71-.52-1.24-1.34-1.24-.82 0-1.36.53-1.36 1.24 0 .7.52 1.25 1.33 1.25h.01Zm4.91 8.21V9.36c0-.22.02-.43.08-.59.17-.43.57-.88 1.23-.88.87 0 1.22.66 1.22 1.64v3.86h2.4V9.25c0-2.22-1.18-3.25-2.76-3.25-1.27 0-1.85.7-2.17 1.19V6.17h-2.4v7.22h2.4Z" />
+              <svg class="icon-fill icon-linkedin" viewBox="2 2 12 12" aria-hidden="true" focusable="false">
+                <path d="M4.94 13.39V6.17h-2.4v7.22h2.4ZM3.74 5.18c.84 0 1.36-.55 1.36-1.25-.02-.71-.52-1.24-1.34-1.24-.82 0-1.36.53-1.36 1.24 0 .7.52 1.25 1.33 1.25h.01Zm4.91 8.21V9.36c0-.22.02-.43.08-.59.17-.43.57-.88 1.23-.88.87 0 1.22.66 1.22 1.64v3.86h2.4V9.25c0-2.22-1.18-3.25-2.76-3.25-1.27 0-1.85.7-2.17 1.19V6.17h-2.4v7.22h2.4Z" />
               </svg>
             </a>
             <a class="social-link" href="mailto:s2471381@ed.ac.uk" aria-label="Email Pinzhe Zhao" title="Email">
@@ -141,6 +145,14 @@
               <h2 id="news-title">News</h2>
             </div>
             <ul class="news-list">
+              <li>
+                <time datetime="2026-09-19">Sep 2026</time>
+                <span>
+                  Started as a Teaching Support Provider in the
+                  <a href="https://informatics.ed.ac.uk/" target="_blank" rel="noreferrer">School of Informatics</a>
+                  at the University of Edinburgh.
+                </span>
+              </li>
               <li>
                 <time datetime="2026-08-17">Aug 2026</time>
                 <span>
